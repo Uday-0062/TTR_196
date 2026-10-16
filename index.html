@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGOALS – Student Goals & Productivity Portal</title>
+  <meta name="description" content="SGOALS – Your ultimate student productivity hub. Track goals, attendance, to-dos, progress and study timetable all in one place!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Extra BG effects -->
+<div id="blob-container" aria-hidden="true">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="blob blob4"></div>
+</div>
+<div id="grid-overlay"  aria-hidden="true"></div>
+<div id="scanlines"     aria-hidden="true"></div>
+
+<!-- Floating particles background -->
+<div id="particles-container" aria-hidden="true"></div>
+
+<!-- ===== DORAEMON (Left Side) ===== -->
+<div class="side-character left" aria-hidden="true" id="doraemon-char">
+  <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Doraemon character">
+    <!-- Body -->
+    <ellipse cx="100" cy="200" rx="72" ry="68" fill="#00A8E8"/>
+    <!-- White belly -->
+    <ellipse cx="100" cy="215" rx="52" ry="48" fill="#FAFAFA"/>
+    <!-- Pocket -->
+    <ellipse cx="100" cy="235" rx="32" ry="12" fill="none" stroke="#CCCCCC" stroke-width="2.5"/>
+    <path d="M68 235 Q100 250 132 235" fill="none" stroke="#CCCCCC" stroke-width="2.5"/>
+    <!-- Head -->
+    <circle cx="100" cy="100" r="78" fill="#00A8E8"/>
+    <!-- Face white area -->
+    <ellipse cx="100" cy="110" rx="60" ry="52" fill="#FAFAFA"/>
+    <!-- Eyes -->
+    <circle cx="78" cy="88" r="18" fill="white"/>
+    <circle cx="122" cy="88" r="18" fill="white"/>
+    <circle cx="82" cy="90" r="10" fill="#111"/>
+    <circle cx="126" cy="90" r="10" fill="#111"/>
+    <circle cx="85" cy="87" r="4" fill="white"/>
+    <circle cx="129" cy="87" r="4" fill="white"/>
+    <!-- Nose -->
+    <circle cx="100" cy="112" r="10" fill="#FF3B30"/>
+    <!-- Whiskers -->
+    <line x1="30" y1="108" x2="85" y2="116" stroke="#555" stroke-width="2"/>
+    <line x1="30" y1="118" x2="85" y2="120" stroke="#555" stroke-width="2"/>
+    <line x1="30" y1="128" x2="85" y2="124" stroke="#555" stroke-width="2"/>
+    <line x1="170" y1="108" x2="115" y2="116" stroke="#555" stroke-width="2"/>
+    <line x1="170" y1="118" x2="115" y2="120" stroke="#555" stroke-width="2"/>
+    <line x1="170" y1="128" x2="115" y2="124" stroke="#555" stroke-width="2"/>
+    <!-- Mouth -->
+    <path d="M78 132 Q100 152 122 132" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Bell collar -->
+    <rect x="45" y="155" width="110" height="14" rx="7" fill="#FF3B30"/>
+    <circle cx="100" cy="162" r="8" fill="#FFD700"/>
+    <circle cx="100" cy="162" r="4" fill="#DAA520"/>
+    <!-- Arms -->
+    <ellipse cx="28" cy="200" rx="20" ry="14" fill="#00A8E8" transform="rotate(-20,28,200)"/>
+    <ellipse cx="172" cy="200" rx="20" ry="14" fill="#00A8E8" transform="rotate(20,172,200)"/>
+    <!-- Hands -->
+    <circle cx="18" cy="215" r="16" fill="white"/>
+    <circle cx="182" cy="215" r="16" fill="white"/>
+    <!-- Legs -->
+    <ellipse cx="75" cy="268" rx="24" ry="14" fill="#00A8E8"/>
+    <ellipse cx="125" cy="268" rx="24" ry="14" fill="#00A8E8"/>
+    <!-- Feet -->
+    <ellipse cx="75" cy="276" rx="28" ry="10" fill="white"/>
+    <ellipse cx="125" cy="276" rx="28" ry="10" fill="white"/>
+  </svg>
+  <div style="text-align:center;font-family:'Fredoka One',cursive;font-size:.8rem;color:#00A8E8;text-shadow:0 0 8px rgba(0,168,232,0.5);margin-top:4px">Doraemon!</div>
+</div>
+
+<!-- ===== SHIN CHAN (Right Side) ===== -->
+<div class="side-character right" aria-hidden="true" id="shinchan-char">
+  <svg viewBox="0 0 200 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shin Chan character">
+    <!-- Body -->
+    <rect x="45" y="155" width="110" height="90" rx="20" fill="#FF4444"/>
+    <!-- Shirt detail -->
+    <rect x="45" y="155" width="110" height="50" rx="20" fill="#FF4444"/>
+    <!-- Shorts -->
+    <rect x="45" y="195" width="110" height="55" rx="15" fill="#FFD700"/>
+    <!-- Head (big round) -->
+    <circle cx="100" cy="100" r="80" fill="#FFDAB9"/>
+    <!-- Hair (black top) -->
+    <ellipse cx="100" cy="38" rx="72" ry="38" fill="#111"/>
+    <rect x="28" y="38" width="144" height="35" fill="#111"/>
+    <!-- Face -->
+    <!-- Eyes (beady small) -->
+    <circle cx="74" cy="92" r="8" fill="#111"/>
+    <circle cx="126" cy="92" r="8" fill="#111"/>
+    <circle cx="76" cy="90" r="3" fill="white"/>
+    <circle cx="128" cy="90" r="3" fill="white"/>
+    <!-- Eyebrows (thick) -->
+    <rect x="60" y="80" width="26" height="6" rx="3" fill="#111"/>
+    <rect x="114" y="80" width="26" height="6" rx="3" fill="#111"/>
+    <!-- Big chubby cheeks -->
+    <circle cx="58" cy="112" r="14" fill="#FFB6B6" opacity="0.6"/>
+    <circle cx="142" cy="112" r="14" fill="#FFB6B6" opacity="0.6"/>
+    <!-- Nose -->
+    <circle cx="100" cy="106" r="7" fill="#E8967A"/>
+    <!-- Big happy mouth -->
+    <path d="M72 125 Q100 148 128 125" fill="#FF6B6B" stroke="#CC3333" stroke-width="1.5"/>
+    <ellipse cx="100" cy="133" rx="18" ry="8" fill="#FF6B6B"/>
+    <!-- Teeth -->
+    <rect x="88" y="128" width="24" height="8" rx="2" fill="white"/>
+    <!-- Arms -->
+    <rect x="10" y="160" width="38" height="22" rx="11" fill="#FFDAB9" transform="rotate(15,10,160)"/>
+    <rect x="152" y="160" width="38" height="22" rx="11" fill="#FFDAB9" transform="rotate(-15,190,160)"/>
+    <!-- Thumbs up right hand -->
+    <circle cx="170" cy="185" r="14" fill="#FFDAB9"/>
+    <rect x="165" y="170" width="10" height="16" rx="5" fill="#FFDAB9"/>
+    <!-- Left hand wave -->
+    <circle cx="30" cy="185" r="14" fill="#FFDAB9"/>
+    <!-- Legs -->
+    <rect x="56" y="248" width="34" height="36" rx="10" fill="#FFDAB9"/>
+    <rect x="110" y="248" width="34" height="36" rx="10" fill="#FFDAB9"/>
+    <!-- Shoes -->
+    <ellipse cx="73" cy="282" rx="24" ry="10" fill="#333"/>
+    <ellipse cx="127" cy="282" rx="24" ry="10" fill="#333"/>
+  </svg>
+  <div style="text-align:center;font-family:'Fredoka One',cursive;font-size:.8rem;color:#FF4444;text-shadow:0 0 8px rgba(255,68,68,0.5);margin-top:4px">Shin Chan!</div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <div class="logo-icon">🎯</div>
+    <span class="logo-text">S<span class="logo-accent">GOALS</span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="#todo"       class="nav-link" id="nav-todo"       data-section="todo">📝 To-Do</a>
+    <a href="#attendance" class="nav-link" id="nav-attendance" data-section="attendance">📊 Attendance</a>
+    <a href="#goals"      class="nav-link" id="nav-goals"      data-section="goals">🌟 Goals</a>
+    <a href="#progress"   class="nav-link" id="nav-progress"   data-section="progress">🚀 Progress</a>
+    <a href="#timetable"  class="nav-link" id="nav-timetable"  data-section="timetable">📅 Timetable</a>
+  </div>
+
+  <div class="nav-clock" id="nav-clock" aria-live="polite">
+    <div class="clock-date" id="clock-date">—</div>
+    <div class="clock-time" id="clock-time">00:00:00</div>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-mascot" aria-hidden="true">
+      <img src="owl_mascot.png" alt="SGOALS Owl Mascot" class="mascot-img" id="mascot-img" onerror="this.style.display='none'" />
+      <div class="mascot-fallback" id="mascot-fallback">🦉</div>
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-title">Welcome to <span class="brand">SGOALS</span>!</h1>
+      <p class="hero-subtitle">Your ultimate student productivity hub 🎮🚀<br/>Level up your studies, crush your goals, and win every day!</p>
+      <div class="hero-badges">
+        <span class="badge badge-xp" id="xp-badge">⚡ XP: <span id="total-xp">0</span></span>
+        <span class="badge badge-streak" id="streak-badge">🔥 Streak: <span id="streak-count">0</span> days</span>
+        <span class="badge badge-level" id="level-badge">🏆 Level: <span id="player-level">1</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-decor" aria-hidden="true">
+    <span class="float-icon" style="--d:0s;--x:10%;--size:2rem;">⭐</span>
+    <span class="float-icon" style="--d:.4s;--x:80%;--size:2.5rem;">🎮</span>
+    <span class="float-icon" style="--d:.8s;--x:50%;--size:1.8rem;">📚</span>
+    <span class="float-icon" style="--d:1.2s;--x:25%;--size:2.2rem;">🏆</span>
+    <span class="float-icon" style="--d:1.6s;--x:65%;--size:1.6rem;">🚀</span>
+    <span class="float-icon" style="--d:0.2s;--x:90%;--size:2rem;">💡</span>
+    <span class="float-icon" style="--d:1s;--x:5%;--size:1.5rem;">🎯</span>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content" id="main-content">
+
+  <!-- ============= TO-DO LIST ============= -->
+  <section class="section" id="todo" aria-labelledby="todo-title">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div>
+        <h2 class="section-title" id="todo-title">Quest Board</h2>
+        <p class="section-sub">Your daily missions await, hero!</p>
+      </div>
+      <div class="section-score" id="todo-score">
+        <span class="score-val" id="todo-done-count">0</span>/<span id="todo-total-count">0</span>
+        <span class="score-label">done</span>
+      </div>
+    </div>
+
+    <div class="todo-input-row">
+      <select id="todo-priority" class="todo-priority-select" aria-label="Priority">
+        <option value="high">🔴 High</option>
+        <option value="medium" selected>🟡 Medium</option>
+        <option value="low">🟢 Low</option>
+      </select>
+      <input type="text" id="todo-input" class="todo-input" placeholder="Add a new quest…" maxlength="80" aria-label="New task" />
+      <input type="date" id="todo-due" class="todo-date-input" aria-label="Due date" />
+      <button class="btn-add" id="todo-add-btn" aria-label="Add task">+ Add Quest</button>
+    </div>
+
+    <div class="todo-filters">
+      <button class="filter-btn active" data-filter="all"   id="filter-all">All</button>
+      <button class="filter-btn"        data-filter="active" id="filter-active">Active</button>
+      <button class="filter-btn"        data-filter="done"   id="filter-done">Done</button>
+      <button class="filter-btn"        data-filter="high"   id="filter-high">🔴 High</button>
+    </div>
+
+    <ul class="todo-list" id="todo-list" aria-label="Task list" role="list"></ul>
+
+    <div class="todo-empty" id="todo-empty">
+      <div style="font-size:3rem">🎉</div>
+      <p>No quests yet — add one above!</p>
+    </div>
+
+    <div class="todo-progress-bar-wrap">
+      <div class="todo-progress-bar" id="todo-progress-bar" style="width:0%"></div>
+    </div>
+    <p class="todo-progress-label" id="todo-progress-label">0% Complete</p>
+  </section>
+
+  <!-- ============= ATTENDANCE TRACKER ============= -->
+  <section class="section" id="attendance" aria-labelledby="att-title">
+    <div class="section-header">
+      <div class="section-icon">📊</div>
+      <div>
+        <h2 class="section-title" id="att-title">Attendance Tracker</h2>
+        <p class="section-sub">Track your presence like a champion!</p>
+      </div>
+      <div class="section-score att-score-box">
+        <span class="score-big" id="att-pct">0%</span>
+        <span class="score-label">overall</span>
+      </div>
+    </div>
+
+    <div class="att-add-row">
+      <input type="text" id="att-subject" class="todo-input" placeholder="Subject name…" maxlength="40" aria-label="Subject name" />
+      <button class="btn-add" id="att-add-btn" aria-label="Add subject">+ Add Subject</button>
+    </div>
+
+    <div class="att-grid" id="att-grid" aria-label="Subjects list"></div>
+
+    <div class="att-summary" id="att-summary">
+      <div class="att-stat-card" id="att-stat-total">
+        <span class="att-stat-num" id="att-total-classes">0</span>
+        <span class="att-stat-label">Total Classes</span>
+      </div>
+      <div class="att-stat-card" id="att-stat-present">
+        <span class="att-stat-num" id="att-total-present">0</span>
+        <span class="att-stat-label">Present</span>
+      </div>
+      <div class="att-stat-card" id="att-stat-absent">
+        <span class="att-stat-num" id="att-total-absent">0</span>
+        <span class="att-stat-label">Absent</span>
+      </div>
+    </div>
+
+    <canvas id="att-chart" height="200" aria-label="Attendance chart"></canvas>
+  </section>
+
+  <!-- ============= GOAL CARD ============= -->
+  <section class="section" id="goals" aria-labelledby="goals-title">
+    <div class="section-header">
+      <div class="section-icon">🌟</div>
+      <div>
+        <h2 class="section-title" id="goals-title">Daily Goal Cards</h2>
+        <p class="section-sub">Set your targets and conquer the day!</p>
+      </div>
+    </div>
+
+    <div class="goal-input-row">
+      <input type="text" id="goal-text" class="todo-input" placeholder="Write your daily goal…" maxlength="80" aria-label="Goal text" />
+      <select id="goal-category" class="todo-priority-select" aria-label="Category">
+        <option value="study">📚 Study</option>
+        <option value="health">💪 Health</option>
+        <option value="personal">😊 Personal</option>
+        <option value="fun">🎮 Fun</option>
+      </select>
+      <button class="btn-add" id="goal-add-btn" aria-label="Add goal">+ Add Goal</button>
+    </div>
+
+    <div class="goals-grid" id="goals-grid" aria-label="Goal cards" role="list"></div>
+
+    <div class="goal-empty" id="goal-empty">
+      <div style="font-size:3rem">🌈</div>
+      <p>No goals yet — what will you achieve today?</p>
+    </div>
+  </section>
+
+  <!-- ============= PROGRESS ============= -->
+  <section class="section" id="progress" aria-labelledby="progress-title">
+    <div class="section-header">
+      <div class="section-icon">🚀</div>
+      <div>
+        <h2 class="section-title" id="progress-title">Progress Dashboard</h2>
+        <p class="section-sub">Watch your power level rise!</p>
+      </div>
+    </div>
+
+    <div class="progress-stats-row">
+      <div class="prog-stat-card" id="prog-stat-goals">
+        <div class="prog-stat-icon">🎯</div>
+        <div class="prog-stat-val" id="prog-goals-total">0</div>
+        <div class="prog-stat-label">Goals Set</div>
+      </div>
+      <div class="prog-stat-card" id="prog-stat-goals-done">
+        <div class="prog-stat-icon">✅</div>
+        <div class="prog-stat-val" id="prog-goals-done">0</div>
+        <div class="prog-stat-label">Goals Done</div>
+      </div>
+      <div class="prog-stat-card" id="prog-stat-tasks">
+        <div class="prog-stat-icon">📋</div>
+        <div class="prog-stat-val" id="prog-tasks-done">0</div>
+        <div class="prog-stat-label">Tasks Done</div>
+      </div>
+      <div class="prog-stat-card" id="prog-stat-att">
+        <div class="prog-stat-icon">🏫</div>
+        <div class="prog-stat-val" id="prog-att-pct">0%</div>
+        <div class="prog-stat-label">Attendance</div>
+      </div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card">
+        <h3 class="chart-title">📈 Weekly Goals Overview</h3>
+        <canvas id="goals-bar-chart" height="220" aria-label="Weekly goals bar chart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3 class="chart-title">🥧 Goal Categories</h3>
+        <canvas id="goals-pie-chart" height="220" aria-label="Goals by category pie chart"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card" style="margin-top:1.5rem">
+      <h3 class="chart-title">📊 Overall Progress Radar</h3>
+      <canvas id="radar-chart" height="260" aria-label="Overall progress radar chart"></canvas>
+    </div>
+
+    <!-- Achievements -->
+    <div class="achievements-section">
+      <h3 class="chart-title">🏆 Achievements Unlocked</h3>
+      <div class="achievements-grid" id="achievements-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============= TIMETABLE ============= -->
+  <section class="section" id="timetable" aria-labelledby="tt-title">
+    <div class="section-header">
+      <div class="section-icon">📅</div>
+      <div>
+        <h2 class="section-title" id="tt-title">My Timetable</h2>
+        <p class="section-sub">Plan your day like a pro gamer!</p>
+      </div>
+    </div>
+
+    <div class="tt-add-row">
+      <select id="tt-day" class="todo-priority-select" aria-label="Day of week">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+      </select>
+      <select id="tt-type" class="todo-priority-select" aria-label="Activity type">
+        <option value="study">📚 Study</option>
+        <option value="exercise">💪 Exercise</option>
+        <option value="personal">😊 Personal</option>
+        <option value="break">☕ Break</option>
+        <option value="sleep">😴 Sleep</option>
+      </select>
+      <input type="text" id="tt-activity" class="todo-input" placeholder="Activity name…" maxlength="50" aria-label="Activity" />
+      <input type="time" id="tt-start" class="todo-date-input" aria-label="Start time" />
+      <input type="time" id="tt-end"   class="todo-date-input" aria-label="End time" />
+      <button class="btn-add" id="tt-add-btn" aria-label="Add slot">+ Add</button>
+    </div>
+
+    <div class="tt-tabs" id="tt-tabs" role="tablist"></div>
+    <div class="tt-content" id="tt-content"></div>
+
+    <div class="tt-legend">
+      <span class="legend-item study-tag">📚 Study</span>
+      <span class="legend-item exercise-tag">💪 Exercise</span>
+      <span class="legend-item personal-tag">😊 Personal</span>
+      <span class="legend-item break-tag">☕ Break</span>
+      <span class="legend-item sleep-tag">😴 Sleep</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" aria-label="Footer">
+  <div class="footer-mascot" aria-hidden="true">🦉</div>
+  <p>Made with ❤️ for students everywhere · <strong>SGOALS</strong> – Level Up Your Life!</p>
+  <p style="font-size:.75rem;opacity:.6;margin-top:.3rem">Data saved locally in your browser. Keep conquering! 🚀</p>
+</footer>
+
+<!-- Toast notification -->
+<div class="toast" id="toast" aria-live="polite" role="status"></div>
+
+<!-- Confetti canvas -->
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<script src="app.js"></script>
+</body>
+</html>
